@@ -16,7 +16,7 @@
 	let files = [];
     let jsonFiles = {};
 
-	const getFiles = async () => {
+	onMount(async () => {
 		let url = `https://app-8eb63342-ceae-4dd7-b32f-a6f573ef78de.cleverapps.io/files`;
 		try {
 			const res = await fetch(url);
@@ -26,9 +26,7 @@
 		} catch (error) {
 			console.error('Caught error:', error);
 		}
-	};
-
-	onMount(getFiles());
+	})
 
 </script>
 <!--
@@ -36,7 +34,6 @@
     <time>Updated: {updated.toLocaleDateString()} - {updated.toLocaleTimeString()}</time>
 </Helper>
 -->
-
 <table class="min-w-full divide-y divide-gray-200">
 	<thead class="bg-gray-50">
 		<tr>

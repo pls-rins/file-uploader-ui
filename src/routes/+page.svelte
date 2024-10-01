@@ -6,7 +6,6 @@
 	import { UploadSolid } from 'flowbite-svelte-icons';
 
 	let clickOutsideModal = false;
-
 </script>
 
 <svelte:head>
@@ -20,27 +19,8 @@
 	</SpeedDialButton>
 </SpeedDial>
 
-	<!-- <div class="h-full sm:rounded-lg">
-		<div class="flex items-center justify-between px-4 pb-4">
-		<Button class="end-0 top-0 inline-flex" on:click={() => (clickOutsideModal = true)}>Ajouter un nouveau document</Button>
-		</div>-
-	</div>	-->
-	<Modal title="Ajouter un nouveau document" bind:open={clickOutsideModal} autoclose>
-		<Upload />
-	</Modal>
+<Modal title="Ajouter un nouveau document" bind:open={clickOutsideModal} autoclose>
+	<Upload />
+</Modal>
 
 <Table />
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-</style>

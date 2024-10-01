@@ -9,7 +9,6 @@
 
 <Navbar rounded color="form">
 	<NavBrand href="/">
-	  <img src="favicon.png" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
 	  <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">File Exchanger</span>
 	</NavBrand>
     <NavHamburger />
