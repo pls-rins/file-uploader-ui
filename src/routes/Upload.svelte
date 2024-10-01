@@ -11,25 +11,20 @@
 	/**
 	 * @type {{ name: any; }[]}
 	 */
-	let files;
+	let files = [];
 	let dataFile = null;
-
-	function onFileUpload() {
-		console.log('onFileUpload()');
-
+	let value = [];
+	function onFileUpload(files) {
 		const form = new FormData();
-		form.append('file', '/Users/pls/Downloads/package.png');
+		form.append('file', files[0]);
 
 		const options = {
 			method: 'POST',
-			headers: { 'Content-Type': 'multipart/form-data' },
-			body: {}
+			body: form,
 		};
 
-		options.body = form;
-
 		fetch('https://app-8eb63342-ceae-4dd7-b32f-a6f573ef78de.cleverapps.io/', options)
-			.then((response) => response.json())
+			.then((response) => console.log(response))
 			.then((response) => console.log(response))
 			.catch((err) => console.error(err));
 /*
@@ -50,7 +45,7 @@
 */
 	}
 
-	let value = [];
+
 	const dropHandle = (event) => {
 		value = [];
 		event.preventDefault();
@@ -70,7 +65,11 @@
 	};
 
 	const handleChange = (event) => {
+
 		const files = event.target.files;
+
+		onFileUpload(files);
+
 		if (files.length > 0) {
 			value.push(files[0].name);
 			value = value;
@@ -129,12 +128,6 @@
 	</Dropzone>
 
 	<div class="flex flex-col justify-center items-center max-w-5xl mx-auto mt-3">
-		{#if dataFile && files[0]}
-			<p>
-				{files[0].name}
-			</p>
-		{/if}
-
 		<Button class="self-end mt-3" on:click={() => onFileUpload()}>Ajouter</Button>
 	</div>
 
